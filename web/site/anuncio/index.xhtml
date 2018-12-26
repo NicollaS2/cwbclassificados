@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    #{userMB.userSeguranca()}
+
+    <head>
+        <title>Tela inicial</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        <ui:composition template="../layout/logado/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <div class="col-md-12" style="margin-top:100px; margin-bottom: 140px">
+                        <h2 class="form-signin-heading">Cadastro de Game</h2>
+                        <h:form id="form" class="form-signin col-md-12" enctype="multipart/form-data">
+                            <div class="col-md-6">
+                                <div class="btn btn-xs btn-primary">Nome do Jogo:</div>
+                                <h:inputText id="inputEmail" class="form-control"
+                                         required="required"
+                                         requiredMessage="Campo Obrigatório"
+                                         label="Email"
+                                         style="height: 32px;"
+                                         value="#{jogos_anunciosMB.jogos.nome}"
+                                         maxlength="40">
+                                </h:inputText>
+                            </div>    
+                            <div class="col-md-6">
+                                <div class="btn btn-xs btn-primary">Console: </div>
+                                <h:selectOneMenu id="inputConsole" class="form-control"
+                                             required="true"
+                                             requiredMessage="Campo Obrigatório"
+                                             label="Console"
+                                             value="#{jogos_anunciosMB.jogos.id_console}"> <!-- relação entre o id da tabela principal e outros campos-->
+                                    <f:selectItems value="#{consoleMB.consoleListar()}" var="console" itemLabel="#{console.descricao}"
+                                               itemValue="#{console.id}"/> <!-- value= objeto total (consoles) itemlabel= é oque deve ser mostrado(descrição) itemvalue= valor de cada item no caso id -->
+                                </h:selectOneMenu>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="btn btn-xs btn-primary">Descrição do jogo e estado:</div>
+                                <h:inputTextarea 
+                                             id="inputDescricao" class="form-control"
+                                             label="Descricao"
+                                             
+                                             value="#{jogos_anunciosMB.jogos.descricao}">
+                                </h:inputTextarea>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="btn btn-xs btn-primary">Genero: </div>
+                                <h:selectOneMenu id="inputGenero" class="form-control"
+                                             required="true"
+                                             requiredMessage="Campo Obrigatório"
+                                             label="Genero" 
+                                             value="#{jogos_anunciosMB.jogos.id_genero}">
+                                     <f:selectItems value="#{generoMB.getGeneroMB()}" var="genero" itemLabel="#{genero.descricao}"
+                                               itemValue="#{genero.id}"/>
+                                </h:selectOneMenu>
+                            </div>    
+                            
+                            <div class="col-md-12">
+                                <p><i class="glyphicon glyphicon-picture"></i> Imagem do Jogo:</p>
+                                <h:outputLabel value="Arquivo" for="arquivo" />
+                                <h:inputFile id="arquivo" value="#{upImgMB.arquivo}" 
+                                         required="true" label="Arquivo" />
+                            </div>
+                            <br />
+                            <h:commandButton class="btn btn-lg btn-danger" value="Cadastrar" style="float:right;" action="#{upImgMB.importa}">
+                                <f:actionListener binding="#{jogos_anunciosMB.cadastroJogos()}" />
+                            </h:commandButton>
+                            
+                            <br />
+                            <h:messages id="msgInfo"
+                                        infoClass="btn btn-bg alert-success"
+                                        warnClass="btn btn-bg alert-warning"
+                                        errorClass="btn btn-bg alert-danger"
+                                        fatalClass="btn btn-bg alert-danger"
+                                        globalOnly="false"
+                                        />
+                        </h:form >
+                    </div> 
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

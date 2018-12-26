@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Acesso ao Sistema</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <!-- Bootstrap -->
+        <link href="scripts/css/bootstrap-theme.min.css" rel="stylesheet"></link>
+        <link href="scripts/css/bootstrap.css" rel="stylesheet"></link>
+        <link href="scripts/css/signin.css" rel="stylesheet"></link>
+        <script src="scripts/js/bootstrap.min.js"></script>
+        
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body class="bg-white">
+        <div class="container">
+            <h:form id="form" enctype="multipart/form-data">
+
+        <h:outputLabel value="Arquivo" for="arquivo" />
+        <h:inputFile id="arquivo" value="#{upImgMB.arquivo}" 
+            required="true" label="Arquivo" />
+
+        <br />
+        <br />
+        <br />
+        <h:commandButton value="Importar"
+            action="#{upImgMB.importa}" />
+        </h:form>
+        </div>
+    </body>
+</html>

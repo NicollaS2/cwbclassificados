@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Bootstrap -->
+
+        <link href="../../scripts/css/layout.css" rel="stylesheet"></link>  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+        <link href="../../scripts/css/bootstrap-theme.min.css" rel="stylesheet"></link>
+        <link href="../../scripts/css/bootstrap.css" rel="stylesheet"></link>
+
+
+        <!-- <link href="scripts/css/signin.css" rel="stylesheet"></link> -->
+        <script src="../../scripts/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    </head>
+    <h:body>
+        <ui:composition template="../layout/layout.xhtml">
+            <ui:define name="content">
+                <div class="col-md-12 pagina">
+                <div class="col-md-3 "></div>
+                <div class="col-md-6" style="margin-top: 100px">
+                    <h:form  class="form-signin">
+                        <h2 class="form-signin-heading">Login</h2>
+
+                        <div class="btn btn-xs btn-primary">Email:</div>
+                        <h:inputText id="inputEmail" class="form-control"
+                                     required="required"
+                                     requiredMessage="Campo Obrigatório"
+                                     label="Email"
+                                     value="#{userMB.user.email}">
+                        </h:inputText>
+                        <br />
+                        <div class="btn btn-xs btn-primary">Senha:</div>
+                        <h:inputSecret id="inputSenha" class="form-control" 
+                                       required="required"
+                                       label="Senha"
+                                       value="#{userMB.user.senha}">
+                        </h:inputSecret>
+                        <br/>
+                        <a href="./cadastro.xhtml" class="cor2">Cadastre-se</a>
+
+                        <h:commandButton class="btn btn-primary direita" value="Próxima" action="#{userMB.login()}"></h:commandButton>
+
+                        <br />
+                        <h:messages id="msgInfo"
+                                    infoClass="btn btn-bg alert-success"
+                                    warnClass="btn btn-bg alert-warning"
+                                    errorClass="btn btn-bg alert-danger"
+                                    fatalClass="btn btn-bg alert-danger"
+                                    globalOnly="false"
+                                    />
+                    </h:form >
+                </div>
+                <div class="col-md-3 "></div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

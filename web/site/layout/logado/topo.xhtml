@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    #{userMB.userSeguranca()}
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Bootstrap -->
+
+        <link href="/../ProjetoIntegrador/scripts/css/layout.css" rel="stylesheet"></link>  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+        <link href="/../ProjetoIntegrador/scripts/css/bootstrap-theme.min.css" rel="stylesheet"></link>
+        <link href="/../ProjetoIntegrador/scripts/css/bootstrap.css" rel="stylesheet"></link>
+
+        <link href="/../ProjetoIntegrador/scripts/css/menu-lateral.css?v=3.4.1" rel="stylesheet"></link>  
+        <link href="/../ProjetoIntegrador/scripts/css/anuncios.css?v=3.4.1" rel="stylesheet"></link>  
+
+
+        <!-- <link href="scripts/css/signin.css" rel="stylesheet"></link> -->
+        <script src="/../ProjetoIntegrador/scripts/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    </head>
+    <body>
+        <div class="col-md-12" style="padding: 0;">
+            <div class="col-md-12" style="background-color: #1b1e2b">
+                <div class="col-md-3" style="padding: 10px 0 10px 0">
+                    <a href="/../ProjetoIntegrador/site/index.xhtml">
+                        <img src="/../ProjetoIntegrador/files/logo.png" width="200px"/>
+                    </a>
+                </div>
+                <div class="col-md-8" style="padding: 10px 0 10px 0"></div>
+                <div class="col-md-1 navtop" style="padding: 20px 0px 10px 0; margin: 0 auto;">
+                    <img src="/../ProjetoIntegrador/files/user.png" width="50px" class="img-circle" style="margin-left: 10px;"/>
+                    <ul class="nav nav-pills navtop" style="float: left;">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle forma2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fff"></a>
+                        <div class="dropdown-menu navdrop" style="min-width: auto">
+                            <a class="dropdown-item dropdown" href="/../ProjetoIntegrador/site/anuncio/meus_anuncios.xhtml">Meus Anúncios</a>
+                            <a class="dropdown-item " href="/../ProjetoIntegrador/site/auth/alterarCadastro.xhtml">Editar cadastro</a>
+                            <a class="dropdown-item " href="/../ProjetoIntegrador/site/anuncio/index.xhtml"><b>Novo anúncio</b></a>
+                            <div class="dropdown-divider"></div>
+                            <h:form>
+                                <h:commandButton class="dropdown-item" action="#{userMB.logout()}" value="Logout" >
+                                </h:commandButton>   
+                            </h:form>
+                        </div>
+                    </li>
+                    </ul>
+                    <p style="color:#fff;float: left;text-align: left;">Olá #{userMB.getSessionUser("user").nome}</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-12" style="background-color: #1fbaed; height: 3.65em;" >
+                <div class="col-md-2"></div>
+                <ul class="nav nav-pills navtop col-md-6">
+                    <!-- PLAYSTATION -->    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle forma" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >PLAYSTATION</a>
+                        <div class="dropdown-menu navdrop">
+                            <a class="dropdown-item dropdown col-md-12" href="?console=3">PS4</a>
+                            <a class="dropdown-item col-md-12" href="?console=2">PS3</a>
+                            <a class="dropdown-item col-md-12" href="?console=1">PS2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item col-md-12" href="?console=5">PS VITA</a>
+                            <a class="dropdown-item col-md-12" href="?console=4">PSP</a>
+                        </div>
+                    </li>
+                    <!-- FIM PLAYSTATION -->
+
+                    <!-- XBOX -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle forma" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">XBOX</a>
+                        <div class="dropdown-menu navdrop">
+                            <a class="dropdown-item dropdown col-md-12" href="?console=7">XBOX ONE</a>
+                            <a class="dropdown-item col-md-12" href="?console=6">XBOX 360</a>
+                        </div>
+                    </li>
+                    <!-- FIM XBOX -->
+
+                    <!-- NINTENDO -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle forma" data-toggle="dropdown" href="#" data-hover="dropdown" >NINTENDO</a>
+                        <div class="dropdown-menu navdrop">
+                            <a class="dropdown-item col-md-12" href="?console=12">NINTENDO SWITCH</a>
+                            <a class="dropdown-item col-md-12 " href="?console=9">NINTENDO WII U</a>
+                            <a class="dropdown-item col-md-12 " href="?console=8">NINTENDO WII</a>
+                            <a class="dropdown-item col-md-12" href="?console=11">SUPER NINTENDO</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item col-md-12" href="?console=10">NINTENDO 3DS</a>
+                        </div>
+                    </li>
+                    <!-- FIM NINTENDO -->
+
+                    <!-- OUTROS -->
+                    <li class="nav-item">
+                        <a class="nav-link forma" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">OUTROS</a>
+                    </li>
+                    <!-- FIM OUTROS --> 
+                </ul>
+            </div>
+        </div> 
+    </body>
+</html>

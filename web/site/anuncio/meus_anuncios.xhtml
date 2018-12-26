@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    #{userMB.userSeguranca()}
+
+    <head>
+        <title>Tela inicial</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        <ui:composition template="../layout/logado/layout.xhtml">
+            <ui:define name="content">
+                <div class="container" style="height: 700px">
+                    <h1>Meus Anúncios:</h1>
+                    <c:forEach class="col-md-12" items="#{jogos_anunciosMB.listarJogosUser()}" var="jogos">
+                        <h:column class="col-md-12">
+                            <div class=" col-md-3" style="padding-top: 10px; padding-bottom: 20px;">
+
+                                <div class="col-md-5">
+                                    <img style="min-height: 80px; max-height: 80px; min-width: 80px; max-width: 80px" src="/../ProjetoIntegrador/site/img/file/#{jogos.img}" />
+                                </div>
+                               
+                                
+                                <div class="col-md-6">
+                                    <h:form>
+                                        <h:commandButton class="btn btn-danger btn-block" style="float:right;" onclick="return confirm('Você quer mesmo excluir esse anúncio?');"  action="#{jogos_anunciosMB.excluirAnuncio(jogos.id_jogosAnuncios)}" value="Excluir" >
+                                        </h:commandButton>      
+                                    
+                                        <a href="alterar_anuncio.xhtml" class="btn btn-warning btn-block" style="float:right;" value="Editar" >
+                                            Editar
+                                        </a>  
+                                    </h:form>     
+                                </div>   
+                                
+                                
+                                <div class="col-md-12">
+                                    #{jogos.nome}
+                                    <br/>
+                                    #{jogos.console.descricao}
+                                    <br/>
+                                    #{jogos.genero.descricao}
+
+                                </div>  
+                            </div>
+                        </h:column>
+                    </c:forEach>
+                </div>    
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

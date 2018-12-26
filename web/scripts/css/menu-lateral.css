@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/06/2018, 17:29:39
+    Author     : pc
+*/
+
+.menu-lateral-esquerdo{
+    
+background-color: #1b6d85; 
+margin: 10px 0 ;
+}
+
+.titulo-menu{
+    
+color: #FFFFFF; 
+font-size: 15pt;
+height: 46px;
+text-align: center;
+}
+
+.nav-menu-esquerdo{
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    
+}
+
+.menu-lateral-esquerdo{
+    padding: 0px;
+    
+    
+}
+.itemLabel{
+    
+    display: block;
+    padding-top: 10px;
+    cursor: pointer;
+    font-size: 13pt;
+    color: #fff;
+    border-bottom: solid 1px #aaa;
+    background-color: #434343;
+    text-align: center;
+    padding: 0px;
+    font-weight: bold;
+    list-style: none;
+    height: 50px;
+    margin: 0 auto;
+    
+}
+
+.itemLabel:hover{
+    background-color: #f2673a;
+    color: #fff;
+    
+}
+
+.itemLabelALink:hover{
+    
+    background-color: #9CF;
+    color: #fff;
+}
+.itemUl{
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: all .2s linear;
+    
+}
+
+.itemInputCheck:checked ~ .itemUl{
+    height: auto;
+    max-height: 100%; 
+    transform: all;
+    
+}
+.itemInput{
+    display: none;
+}
+.itemLabelALink{
+    height: 40px;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    background-color: #fafafa;
+    color: #333;
+    border: solid 1px #aaa;
+    
+}
+
+
+

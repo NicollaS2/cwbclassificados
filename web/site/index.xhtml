@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <title>Tela inicial</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+
+        <ui:composition template="layout/logado/layout.xhtml">
+            <ui:define name="content">
+                <div id="divisor" class="col-md-12" style="padding-left:0px; padding-right: 0px;">
+                    <aside class="col-md-2 ">
+                        <div class="menu-lateral-esquerdo col-md-12" style="padding: 0px;">
+                            <div class="filtros">
+                                <header class="col-md-12" style="margin: 0px; padding: 0px; ">
+                                    <div class="col-lg-12 titulo-menu" style="margin: 0px;">
+                                        <p style="padding-top: 10px">Filtro de Jogos</p>
+                                    </div>
+                                </header>
+                                <nav class="nav-menu-esquerdo col-md-12" style="padding: 0px;">
+                                    <!-- variavel para links -->
+                                    <div class="itemMenuLateral">
+                                        <li class="col-md-12" style="padding: 0px; list-style: none;"><a class="itemLabel col-md-12" style="border-bottom: solid 2px #aaa; padding-top: 11px; text-decoration: none;" href="#"><i class="glyphicon glyphicon-refresh"></i> Últimas Atualizações</a></li>
+                                    </div>
+                                    <div class="itemMenuLateral">
+                                        <input class="itemInputCheck itemInput" type="checkbox" id="check1" />
+                                        <label class="itemLabel col-md-12" style="padding-top: 10px;" for="check1">Gêneros</label>
+                                        <ul class="itemUl col-md-12" style=" margin: 0px; padding: 0px;">
+
+                                            <h:dataTable value="#{generoMB.getGeneroMB()}" var="genero" style="margin: 0 auto; width: 100%;">
+                                                <h:column>
+                                                    <li><a class="itemLabelALink col-md-12" href="?genero=#{genero.id}" >#{genero.descricao}</a></li>
+                                                </h:column>
+                                            </h:dataTable>
+                                        </ul>
+                                    </div>
+                                    <div class="itemMenuLateral">
+                                        <input class="itemInputCheck itemInput" type="checkbox" id="check2" />
+                                        <label class="itemLabel col-md-12" style="padding-top: 10px; margin: 0px;" for="check2">Bairros</label>
+                                        <ul class="itemUl col-md-12" style="margin: 0px; padding: 0px;">
+                                            <h:dataTable value="#{bairroMB.getBairros()}" var="bairro" style="margin: 0 auto; width: 100%;">
+                                                <h:column>
+                                                    <li><a class="itemLabelALink col-md-12" href="?bairro=#{bairro.id}" >#{bairro.bairroNome}</a></li>
+                                                </h:column>
+                                            </h:dataTable>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </aside>
+                    <!-- final menu lateral esquerdo-->
+
+                    <!-- inicio seção de jogos conteudo do meio lado direito-->
+                    <section class="col-md-10" style="padding-left:0px; padding-right: 0px;">
+                        <div class="corpo_anuncios col-md-12">
+                            <div class="tabela_anuncios col-md-12" style="padding-right: 0px; padding-left: 0px;">
+                                <header class="cabecario_anuncio col-md-12">
+                                    <h3><i class="glyphicon glyphicon-refresh"></i> Ultimas Atualizações</h3>
+                                </header>
+                                <!-- loop de jogos -->
+                                <c:forEach class="col-md-12" items="#{jogos_anunciosMB.listarJogos()}" var="jogos">
+                                    <h:column class="col-md-12">
+                                        <h:form>
+                                            <h:commandLink action="#{jogos_anunciosMB.idUltimo(jogos.id_jogosAnuncios)}"  style="margin: 0px; padding: 0px;">
+                                                <div class=" col-md-3" style="padding-right: 10px; padding-left: 10px;">
+                                                    <div class=" anuncio col-md-12" style="padding: 0px; background-image: url(/../ProjetoIntegrador/files/teste.png);">
+                                                        <div class="imagens">
+                                                            <img class="col-md-12" style="min-height: 288px; max-height: 288px" src="/../ProjetoIntegrador/site/img/file/#{jogos.img}" />
+                                                        </div>
+                                                        <div class="col-md-12 nome_anuncio">#{jogos.nome}</div>
+                                                        <div class="col-md-12 console_anuncio nome_ocultar" style="height: 27px;">#{jogos.console.descricao}</div>
+                                                        <div class="col-md-12 genero_anuncio nome_ocultar" style="height: 23px;">#{jogos.genero.descricao}</div>
+                                                        <div class="col-md-12 informacoes_anuncios" style="font-size: 9pt;">
+                                                            <div class="col-md-6" style="background-color: #023183">
+                                                                <div class="col-md-12 ">Usuário</div>
+                                                                <div class="col-md-12 nome_ocultar">#{jogos.user.nome}</div>
+                                                            </div>
+                                                            <div class="col-md-6" style="background-color:#10ac84">
+                                                                <div class="col-md-12">Local</div>
+                                                                <div class="col-md-12 nome_ocultar">#{jogos.user.bairro.bairroNome}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </h:commandLink>
+                                        </h:form>
+                                    </h:column>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
